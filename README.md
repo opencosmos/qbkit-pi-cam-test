@@ -140,11 +140,13 @@ _Estimated duration: 5-10 minutes + 2 more to double-check every connection._
 
  3. Connect the following pins on the Pi GPIO to the qbkit.
 
-	| 2  | 5V0 out (qbkit power #4 [5V0])
-	| 4  | (nothing)
-	| 6  | Ground (qbkit power #3 [GND])
-	| 8  | UART TX (qbkit data #10 [UART RX])
-	| 10 | UART RX (qbkit data #9 [UART TX])
+| Pi #pin | purpose on Pi | connects to #pin on qbkit |
+|---------|---------------|---------------------------|
+|     2   | 5V0           | Power #4 [5V0]            |
+|     4   | -             | -                         |
+|     6   | Ground        | Power #3 [GND]            |
+|     8   | UART TX       | Data #10 [UART RX]        |
+|     10  | UART RX       | Data #9 [UART TX]         |
 
  4. Ensure that both the qbkit and the Pi have their SD cards properly inserted.
 
