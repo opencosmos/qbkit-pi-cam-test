@@ -1,5 +1,7 @@
 # qbkit Raspberry Pi camera demo
 
+_Estimated total duration: 20-60 minutes._
+
 This demonstrates controlling power for and communicating with a Raspberry Pi via UART.
 It powers on the Pi, waits for it to boot up, commands it to take a photograph using the Pi Camera, then downloads the photograph to the qbkit.
 All data is transferred between qbkit and payload via 230400-baud UART.
@@ -18,15 +20,21 @@ This will be used by external Git providers (e.g. Github) to identify and to aut
 
 ### Github account
 
+_Estimated duration: 2 minutes._
+
 Create a [Github](https://github.com) account (or use your existing one).
 
 ### Program repository
+
+_Estimated duration: 2 minutes._
 
 Open [the repository containing the qbkit pi-camera-demo software](https://github.com/opencosmos/qbkit-pi-cam-test) and fork it to your own profile.
 
 On your fork, go to `Settings` → `Deploy keys`, add the qbkit's SSH public key the list with title `qbkit` and without granting write access.
 
 ### Images repository
+
+_Estimated duration: 2 minutes._
 
 Create a new repository called `qbkit-pi-cam-images`.
 
@@ -35,6 +43,8 @@ On your new repository, go to `Settings` → `Deploy keys`, add the qbkit's SSH 
 ## Set-up (qbkit, via qbapp)
 
 ### A. Creating volumes
+
+_Estimated duration: 3 minutes._
 
 Create two **Git** volumes on the qbkit.
 Use the SSH URLs (`git@...`) not the HTTPS URLs (`https://...`).
@@ -47,9 +57,13 @@ Use the SSH URLs (`git@...`) not the HTTPS URLs (`https://...`).
 
 ### B. Installing software
 
+_Estimated duration: 1 minute._
+
 Pull the program repository to the qbkit.
 
 ### C. Creating service
+
+_Estimated duration: 1 minute._
 
 Create a service:
 
@@ -71,6 +85,8 @@ Prefix with `sudo` as appropriate if not running as root.
 
 ### Pre-requisites
 
+_Estimated duration: 1-15 minutes._
+
 In order to compile the server program, will need GNU Make v4.0+ and GCC v6+ to be installed on your Pi.
 On Ubuntu, this is acheived with `apt update && apt install build-essential`.
 On Arch, this is acheived with `pacman -Sy --needed base base-devel`
@@ -79,13 +95,24 @@ The server uses the `raspistill` program, found in `libraspberrypi-bin` package 
 
 ### Disable serial terminal, free up the UART
 
+_Estimated duration: 1 minute._
+
 Disable the serial terminal on the Pi.
+
 Removing the `console=ttyAMA0,...` kernel command-line argument from /boot/config.txt should  be sufficient, however it is recommended to use the `raspi-config` tool to disable the serial terminal, and to configure the UART for general purpose use.
 
-### Installation
+### Installation to Pi
 
-Copy the program source folder to your Pi to the path `/root/pi-cam-demo` (creating if necessary).
+_Estimated duration: 5 minutes._
+
+*Advanced users may wish to use cross-compilation, which I won't describe in this document.*
+
+The source code for the demo software (both qbkit and payload sides) can be found in [the Open Cosmos Github repository qbkit-pi-cam-source](https://github.com/opencosmos/qbkit-pi-cam-source.git).
+
 Then run the following commands on the Pi:
+
+	# Clone the source repository onto the Pi
+	git clone https://github.com/opencosmos/qbkit-pi-cam-source.git /root/pi-cam-demo
 
 	# Compile program by running
 	make -BC /root/pi-cam-demo
@@ -104,6 +131,8 @@ Then run the following commands on the Pi:
 
 ## Connecting
 
+_Estimated duration: 5-10 minutes + 2 more to double-check every connection._
+
  1. Disconnect all cables from the Raspberry Pi.
     If it is connected to any power source other than the qbkit while also connected to the qbkit power output, it will probably break permanently.
 
@@ -119,17 +148,25 @@ Then run the following commands on the Pi:
 
  4. Ensure that both the qbkit and the Pi have their SD cards properly inserted.
 
- 5. Connect the power supply to the qbkit.
+ 5. Double-check your wiring.
+    The only connections to the Pi should be from the qbkit and from the Pi camera.
+    Ensure TX/RX are the correct way (RX of one device to TX of the other).
+    Ensure that the power connections are correct.
+    Get this wrong and you'll have a baked Pi.
 
- 6. Ensure your computer has an internet connection, and is configured to share the connection with the qbkit.
+ 6. Connect the power supply to the qbkit.
+
+ 7. Ensure your computer has an internet connection, and is configured to share the connection with the qbkit.
     This can be fiddly (especially on Windows), however we are working to create dedicated drivers for qbkit on Windows and OSX in order to avoid this.
     Linux users can achieve this with a couple of iptables rules (masquerading + forwarding), enabling ip forwarding via sysctl/procfs, then starting a dhcp server on the qbkit network interface, when it appears on your system.
 
- 7. Connect the qbkit USB to the computer.
+ 8. Connect the qbkit USB to the computer.
     The qbkit will power on and blue LEDs should flash.
     A running-leds ("Knight Rider") pattern should appear once the qbkit has booted up.
 
 ## Running (via qbapp)
+
+_Estimated duration: 3 minutes._
 
 Start the service `capture-image`.
 
@@ -152,6 +189,8 @@ This will start the `program` from the program volume `pi-cam`, which then does 
  * Powers off the Pi by turning off the 5V0 power rail via the `gpio` command.
 
 ## Acquisition (via qbapp)
+
+_Estimated duration: 2 minutes._
 
 Push the images volume (type: `var`, name: `images`) to Git.
 
