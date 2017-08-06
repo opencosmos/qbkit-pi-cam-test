@@ -13,6 +13,9 @@ In future tarball and file-level access will also be available, however this is 
 
 ## Pre set-up
 
+In qbapp, generate/get the qbkit's SSH public key.
+This will be used by external Git providers (e.g. Github) to identify and to authenticate the qbkit.
+
 ### Github account
 
 Create a [Github](https://github.com) account (or use your existing one).
