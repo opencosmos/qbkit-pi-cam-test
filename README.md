@@ -22,6 +22,8 @@ This will be used by external Git providers (e.g. Github) to identify and to aut
 
 _Estimated duration: 2 minutes._
 
+Troubleshooting for possible Git problems is in the GIT.md file.
+
 #### Using your personal account for the qbkit
 
 Create a [Github](https://github.com) account (or use your existing one).
