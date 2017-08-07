@@ -132,6 +132,11 @@ Then run the following commands on the Pi:
 	# Copy systemd service file to the correct place
 	cp /root/pi-cam-demo/systemd/server.service /etc/systemd/system/pi-cam.service
 
+	# If you are using a USB camera (v4l compatible) instead of the Pi camera
+	# then uncomment the "Environment=USE_V4L" line in the unit file.
+	#
+	# sed -e 's/^# //' /root/pi-cam-demo/systemd/server.service > /etc/systemd/system/pi-cam.service
+
 	# Enable the service so it starts automatically on boot-up
 	systemctl enable pi-cam.service
 
