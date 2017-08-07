@@ -16,6 +16,14 @@ References to using Git locally imply git-pulling the relevant branches to your 
 
  * proprietary offline Git GUIs (e.g. from Atlassian, Github, Microsoft).
 
+The expected workflow involves repository which are either:
+
+ * External content, only *read* (pulled) by the qbkit, but never written by the qbkit.
+
+ * Generated content, only *written* (pushed) by the qbkit, but never pulled by the qbkit, and never written to by anything other than the qbkit.
+
+Following this pattern of read-only / write-only repositories (which are never written to by _both_ the qbkit and by something else) should avoid any of the problems listed below.
+
 ## I try to pull from Github, but they files aren't appearing on the qbkit.  I have commits in Github from elsewhere.
 
 **Cause:**
