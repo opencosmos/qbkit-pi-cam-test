@@ -30,7 +30,7 @@ _Estimated duration: 2 minutes._
 
 Open [the repository containing the qbkit pi-camera-demo software](https://github.com/opencosmos/qbkit-pi-cam-test) and fork it to your own profile.
 
-On your fork, go to `Settings` → `Deploy keys`, add the qbkit's SSH public key the list with title `qbkit` and without granting write access.
+On your fork, go to `Settings` → `Deploy keys`, add the qbkit's SSH public key to the list with title `qbkit` and without granting write access.
 
 ### Images repository
 
@@ -38,7 +38,7 @@ _Estimated duration: 2 minutes._
 
 Create a new repository called `qbkit-pi-cam-images`.
 
-On your new repository, go to `Settings` → `Deploy keys`, add the qbkit's SSH public key the list with title `qbkit` **and grant write access**.
+On your new repository, go to `Settings` → `Deploy keys`, add the qbkit's SSH public key to the list with title `qbkit` **and grant write access**.
 
 ## Set-up (qbkit, via qbapp)
 
