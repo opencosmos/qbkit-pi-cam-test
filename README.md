@@ -22,7 +22,23 @@ This will be used by external Git providers (e.g. Github) to identify and to aut
 
 _Estimated duration: 2 minutes._
 
+#### Using your personal account for the qbkit
+
 Create a [Github](https://github.com) account (or use your existing one).
+
+Add the qbkit's SSH public key (from qbapp) to the keys associated with your account.
+
+#### Using an organisation, with a distinct qbkit account
+
+Another option is to create a new account just for the qbkit.
+
+ 1. Add the qbkit's SSH public key as the only key for that account.
+
+ 2. Add the qbkit account to your organisation.
+
+ 3. Grant the qbkit account read access to repositories which contain programs/libraries/data that you want to install on the qbkit.
+
+ 3. Grant the qbkit account read+write access to repositories which the qbkit should push data out to.
 
 ### Program repository
 
@@ -30,15 +46,11 @@ _Estimated duration: 2 minutes._
 
 Open [the repository containing the qbkit pi-camera-demo software](https://github.com/opencosmos/qbkit-pi-cam-test) and fork it to your own profile.
 
-On your fork, go to `Settings` → `Deploy keys`, add the qbkit's SSH public key to the list with title `qbkit` and without granting write access.
-
 ### Images repository
 
 _Estimated duration: 2 minutes._
 
 Create a new repository called `qbkit-pi-cam-images`.
-
-On your new repository, go to `Settings` → `Deploy keys`, add the qbkit's SSH public key to the list with title `qbkit` **and grant write access**.
 
 ## Set-up (qbkit, via qbapp)
 
@@ -182,7 +194,7 @@ This will start the `program` from the program volume `pi-cam`, which then does 
 
  * Captures an image, with the name `image-{iso8601-date/time}.jpg`.
 
- * Downloads the image to the qbkit (over UART), saving into data volume `/qbkit/var/images/`.
+ * Transfers the image to the qbkit (over UART), saving into data volume `/qbkit/var/images/`.
 
  * Commands the Pi to shut down, then waits until the Pi stops responding to pings over UART.
 
