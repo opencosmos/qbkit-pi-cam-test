@@ -24,7 +24,7 @@ The expected workflow involves repository which are either:
 
 Following this pattern of read-only / write-only repositories (which are never written to by _both_ the qbkit and by something else) should avoid any of the problems listed below.
 
-## I try to pull from Github, but they files aren't appearing on the qbkit.  I have commits in Github from elsewhere.
+## I try to pull from Github, but the files aren't appearing on the qbkit.  I have commits in Github from elsewhere.
 
 **Cause:**
 
