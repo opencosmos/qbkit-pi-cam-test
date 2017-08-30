@@ -115,6 +115,8 @@ Disable the serial terminal on the Pi.
 
 Removing the `console=ttyAMA0,...` kernel command-line argument from /boot/config.txt should  be sufficient, however it is recommended to use the `raspi-config` tool to disable the serial terminal, and to configure the UART for general purpose use.
 
+On some Pi's, it is necessary to edit the systemd service and replace ttyAMA0 with ttyS0 in the ExecStart value.
+
 ### Installation to Pi
 
 _Estimated duration: 5 minutes._
