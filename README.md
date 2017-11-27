@@ -87,7 +87,7 @@ Create a service:
 
  * description: *(optional)* `Capture an image via the PI camera and download it (pi-cam)`.
 
- * command-line: `/bin/sh -c './program client /dev/ttyS4 image-$$(date -uIsec).jpg /qbkit/var/images'`
+ * command-line: `/bin/sh -c './program client /qbkit/interfaces/payload_uart image-$$(date -uIsec).jpg /qbkit/var/images'`
 
 ## Set-up (Raspberry PI, via SSH terminal)
 
